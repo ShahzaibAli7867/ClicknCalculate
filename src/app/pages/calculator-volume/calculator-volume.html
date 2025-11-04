@@ -1,0 +1,335 @@
+<app-header></app-header>
+
+<div class="volume-page container py-4 text-light">
+  <div class="row">
+    <!-- Volume Calculator Section -->
+    <div class="col-12 col-md-6 col-lg-5">
+      <h1 class="h4 fw-bold mb-3 text-info">📦 Volume Calculator</h1>
+      
+      <div class="calculator-shell shadow-lg rounded-4 p-4 mb-4">
+        <!-- Shape Selector -->
+        <div class="mb-3">
+          <label class="form-label text-dark fw-semibold">Calculate the Volume of:</label>
+          <select class="form-select form-select-lg" [(ngModel)]="selectedShape" (change)="onShapeChange()">
+            <option value="capsule">Capsule</option>
+            <option value="cone">Cone</option>
+            <option value="conical-frustum">Conical Frustum</option>
+            <option value="cube">Cube</option>
+            <option value="cylinder">Cylinder</option>
+            <option value="hemisphere">Hemisphere</option>
+            <option value="pyramid-square">Pyramid: Square</option>
+            <option value="rectangular-prism">Rectangular Prism</option>
+            <option value="sphere">Sphere</option>
+            <option value="spherical-cap">Spherical Cap</option>
+            <option value="triangular-prism">Triangular Prism</option>
+          </select>
+        </div>
+
+        <!-- Dynamic Input Fields -->
+        <div class="inputs-section">
+          <!-- Cube -->
+          <div *ngIf="selectedShape === 'cube'" class="mb-3">
+            <label class="form-label text-dark">Side length (a) =</label>
+            <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.side" placeholder="Enter side length">
+          </div>
+
+          <!-- Sphere -->
+          <div *ngIf="selectedShape === 'sphere'" class="mb-3">
+            <label class="form-label text-dark">Radius (r) =</label>
+            <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.radius" placeholder="Enter radius">
+          </div>
+
+          <!-- Cylinder -->
+          <div *ngIf="selectedShape === 'cylinder'">
+            <div class="mb-3">
+              <label class="form-label text-dark">Radius (r) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.radius" placeholder="Enter radius">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-dark">Height (h) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.height" placeholder="Enter height">
+            </div>
+          </div>
+
+          <!-- Cone -->
+          <div *ngIf="selectedShape === 'cone'">
+            <div class="mb-3">
+              <label class="form-label text-dark">Radius (r) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.radius" placeholder="Enter radius">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-dark">Height (h) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.height" placeholder="Enter height">
+            </div>
+          </div>
+
+          <!-- Pyramid Square -->
+          <div *ngIf="selectedShape === 'pyramid-square'">
+            <div class="mb-3">
+              <label class="form-label text-dark">Base Side (a) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.side" placeholder="Enter base side">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-dark">Height (h) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.height" placeholder="Enter height">
+            </div>
+          </div>
+
+          <!-- Rectangular Prism -->
+          <div *ngIf="selectedShape === 'rectangular-prism'">
+            <div class="mb-3">
+              <label class="form-label text-dark">Length (l) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.length" placeholder="Enter length">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-dark">Width (w) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.width" placeholder="Enter width">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-dark">Height (h) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.height" placeholder="Enter height">
+            </div>
+          </div>
+
+          <!-- Capsule -->
+          <div *ngIf="selectedShape === 'capsule'">
+            <div class="mb-3">
+              <label class="form-label text-dark">Radius (r) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.radius" placeholder="Enter radius">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-dark">Cylindrical Height (h) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.height" placeholder="Enter height">
+            </div>
+          </div>
+
+          <!-- Conical Frustum -->
+          <div *ngIf="selectedShape === 'conical-frustum'">
+            <div class="mb-3">
+              <label class="form-label text-dark">Top Radius (r1) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.radius1" placeholder="Enter top radius">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-dark">Bottom Radius (r2) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.radius2" placeholder="Enter bottom radius">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-dark">Height (h) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.height" placeholder="Enter height">
+            </div>
+          </div>
+
+          <!-- Hemisphere -->
+          <div *ngIf="selectedShape === 'hemisphere'" class="mb-3">
+            <label class="form-label text-dark">Radius (r) =</label>
+            <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.radius" placeholder="Enter radius">
+          </div>
+
+          <!-- Spherical Cap -->
+          <div *ngIf="selectedShape === 'spherical-cap'">
+            <div class="mb-3">
+              <label class="form-label text-dark">Radius (r) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.radius" placeholder="Enter radius">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-dark">Cap Height (h) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.height" placeholder="Enter cap height">
+            </div>
+          </div>
+
+          <!-- Triangular Prism -->
+          <div *ngIf="selectedShape === 'triangular-prism'">
+            <div class="mb-3">
+              <label class="form-label text-dark">Base Side (a) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.side" placeholder="Enter base side">
+            </div>
+            <div class="mb-3">
+              <label class="form-label text-dark">Prism Height/Length (h) =</label>
+              <input type="number" class="form-control form-control-lg" [(ngModel)]="inputs.height" placeholder="Enter prism height">
+            </div>
+          </div>
+        </div>
+
+        <!-- Units Selector -->
+        <div class="mb-4">
+          <label class="form-label text-dark fw-semibold">Units</label>
+          <select class="form-select" [(ngModel)]="selectedUnit">
+            <option value="km">kilometers (km)</option>
+            <option value="m">meters (m)</option>
+            <option value="cm">centimeters (cm)</option>
+            <option value="mm">millimeters (mm)</option>
+            <option value="mi">miles (mi)</option>
+            <option value="yd">yards (yd)</option>
+            <option value="ft">feet (ft)</option>
+            <option value="in">inches (in)</option>
+          </select>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex gap-3 mb-3">
+          <button class="btn btn-secondary flex-fill" (click)="clear()">Clear</button>
+          <button class="btn btn-calculate flex-fill" (click)="calculate()">Calculate</button>
+        </div>
+
+        <!-- Answer Section -->
+        <div class="answer-section" *ngIf="result !== null">
+          <h5 class="text-dark fw-semibold mb-3">Answer:</h5>
+          <div class="result-box">
+            <div class="result-label">Total Volume</div>
+            <div class="result-value">V = {{ result | number:'1.0-5' }} {{ selectedUnit }}<sup>3</sup></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Functions Table Section -->
+    <div class="col-12 col-md-6 col-lg-5">
+      <div class="functions-section">
+        <h2 class="h5 fw-semibold mb-3 text-white">🧮 Volume Calculator – Quick Guide</h2>
+        <h3 class="h6 text-white mt-3 mb-2">Functions</h3>
+        <div class="table-responsive small">
+          <table class="table table-dark table-sm align-middle mb-3">
+            <thead>
+              <tr><th>Symbol</th><th>Meaning</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>h</td><td>Height</td></tr>
+              <tr><td>s</td><td>Slant height</td></tr>
+              <tr><td>a</td><td>Side length</td></tr>
+              <tr><td>e</td><td>Lateral edge length</td></tr>
+              <tr><td>r</td><td>Half of side length (r = a / 2)</td></tr>
+              <tr><td>V</td><td>Volume</td></tr>
+              <tr><td>L</td><td>Lateral surface area</td></tr>
+              <tr><td>B</td><td>Base surface area</td></tr>
+              <tr><td>S</td><td>Total surface area</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="comprehensive-guide">
+        <h2 class="h4 fw-bold mb-4 text-white text-center">📚 Complete Calculator Guide</h2>
+        
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🏔 Pyramid</h3>
+              <ul class="text-white small">
+                <li><strong>Volume:</strong>V=31​a2h</li>
+                <li><strong>Lateral Surface Area:</strong>L=aa2+4h2
+​</li>
+                <li><strong>Base Surface Area:</strong>B=a2</li>
+                <li><strong>Total Surface Area:</strong>S=L+B</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🧊 Cube</h3>
+              <ul class="text-white small">
+                <li><strong>Addition/Subtraction:</strong> 3 + 5 = 8, 7 - 9 = -2</li>
+                <li><strong>Multiplication/Division:</strong> 13 × 3 = 39, 25 ÷ 2 = 12.5</li>
+                <li><strong>Repeating:</strong> Use = repeatedly to repeat the last operation.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🍦 Circular Cone</h3>
+              <ul class="text-white small">
+                <li><strong>Volume:</strong>V=31​πr2h</li>
+                <li><strong>Lateral Surface Area:</strong>L=πrl</li>
+                <li><strong>Base Surface Area:</strong>B=πr2</li>
+                <li><strong>Total Surface Area:</strong>S=L+B</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🏺 Cylinder</h3>
+              <ul class="text-white small">
+                <li><strong>Volume:</strong>V=πr2h</li>
+                <li><strong>Lateral Surface Area:</strong>L=2πrh</li>
+                <li><strong>Base Surface Area:</strong>B=πr2</li>
+                <li><strong>Total Surface Area:</strong>S=L+B</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">⚪ Sphere</h3>
+              <ul class="text-white small">
+                <li><strong>Volume:</strong>V=43​πr3</li>
+                <li><strong>Lateral Surface Area:</strong>L=4πr2</li>
+                <li><strong>Base Surface Area:</strong>B=πr2</li>
+                <li><strong>Total Surface Area:</strong>S=L+B</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🌗 Hemisphere</h3>
+              <ul class="text-white small">
+                <li><strong>Volume:</strong>V=23​πr3</li>
+                <li><strong>Lateral Surface Area:</strong>L=2πrh</li>
+                <li><strong>Base Surface Area:</strong>B=πr2</li>
+                <li><strong>Total Surface Area:</strong>S=L+B</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">📦 Rectangular Prism</h3>
+              <ul class="text-white small">
+                <li><strong>Volume:</strong>V=lwh</li>
+                <li><strong>Lateral Surface Area:</strong>L=2lh+2wh</li>
+                <li><strong>Base Surface Area:</strong>B=lw</li>
+                <li><strong>Total Surface Area:</strong>S=L+B</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🔻 Conical Frustum</h3>
+              <ul class="text-white small">
+                <li><strong>Volume:</strong>V=13​πh(r12+r22+r1r2)</li>
+                <li><strong>Lateral Surface Area:</strong>L=π(r1+r2)l</li>
+                <li><strong>Base Surface Area:</strong>B=πr2</li>
+                <li><strong>Total Surface Area:</strong>S=L+B</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">💊 Capsule</h3>
+              <ul class="text-white small">
+                <li><strong>Volume:</strong>V=πr2(34​r+a)</li>
+                <li><strong>Surface Area:</strong>S=2πrh+2πr2</li>
+                
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🟣 Spherical Cap</h3>
+              <ul class="text-white small">
+                <li><strong>Volume:</strong>V=13​πh2(3r+h)</li>
+                <li><strong>Surface Area:</strong>S=2πrh+2wh</li>
+                
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<app-footer></app-footer>

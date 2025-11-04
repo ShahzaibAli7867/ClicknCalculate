@@ -1,0 +1,173 @@
+<app-header></app-header>
+
+<div class="area-page container py-4 text-light">
+  <div class="row">
+    <!-- Area Converter Section -->
+    <div class="col-12 col-md-6 col-lg-5">
+      <h1 class="h4 fw-bold mb-3 text-info">📏 Area Conversion Calculator</h1>
+      
+      <div class="calculator-shell shadow-lg rounded-4 p-4 mb-4">
+        <div class="text-center mb-4">
+          <h2 class="h5 text-dark fw-bold mb-3">Convert Area</h2>
+        </div>
+
+        <!-- From Unit -->
+        <div class="mb-3">
+          <label class="form-label text-dark fw-semibold">From:</label>
+          <select class="form-select form-select-lg" [(ngModel)]="fromUnit">
+            <option *ngFor="let unit of areaUnits" [value]="unit.value">{{ unit.label }}</option>
+          </select>
+        </div>
+
+        <!-- Swap Button -->
+        <div class="text-center mb-3">
+          <button class="btn btn-swap" (click)="swap()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M7 16V4M7 4L3 8M7 4l4 4"></path>
+              <path d="M17 8v12m0 0l4-4m-4 4l-4-4"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- To Unit -->
+        <div class="mb-3">
+          <label class="form-label text-dark fw-semibold">To:</label>
+          <select class="form-select form-select-lg" [(ngModel)]="toUnit">
+            <option *ngFor="let unit of areaUnits" [value]="unit.value">{{ unit.label }}</option>
+          </select>
+        </div>
+
+        <!-- Value Input -->
+        <div class="mb-4">
+          <label class="form-label text-dark fw-semibold">Value to Convert</label>
+          <input type="number" class="form-control form-control-lg" [(ngModel)]="inputValue" placeholder="Enter value" min="0" step="any">
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="d-flex gap-3 mb-3">
+          <button class="btn btn-secondary flex-fill" (click)="clear()">Clear</button>
+          <button class="btn btn-calculate flex-fill" (click)="calculate()">Calculate</button>
+        </div>
+
+        <!-- Answer Section -->
+        <div class="answer-section" *ngIf="result !== null">
+          <h5 class="text-dark fw-semibold mb-3">Answer:</h5>
+          <div class="result-box">
+            <div class="result-value">{{ result | number:'1.0-6' }} {{ getUnitLabel(toUnit) }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Conversion Table Section -->
+    <div class="col-12 col-md-6 col-lg-5">
+      <div class="functions-section">
+        <h2 class="h5 fw-semibold mb-3 text-white">📏 Area Conversion – Quick Reference</h2>
+        <h3 class="h6 text-white mt-3 mb-2">Common Conversions</h3>
+        <div class="table-responsive small">
+          <table class="table table-dark table-sm align-middle mb-3">
+            <thead>
+              <tr><th>From</th><th>To</th><th>Multiply by</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>m²</td><td>ft²</td><td>10.764</td></tr>
+              <tr><td>ft²</td><td>m²</td><td>0.0929</td></tr>
+              <tr><td>m²</td><td>yd²</td><td>1.196</td></tr>
+              <tr><td>acre</td><td>m²</td><td>4,047</td></tr>
+              <tr><td>hectare</td><td>m²</td><td>10,000</td></tr>
+              <tr><td>km²</td><td>mi²</td><td>0.386</td></tr>
+              <tr><td>mi²</td><td>km²</td><td>2.590</td></tr>
+              <tr><td>acre</td><td>hectare</td><td>0.405</td></tr>
+              <tr><td>ft²</td><td>in²</td><td>144</td></tr>
+              <tr><td>yd²</td><td>ft²</td><td>9</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="comprehensive-guide">
+        <h2 class="h4 fw-bold mb-4 text-white text-center">📚 Area Conversion Guide</h2>
+        
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">📐 Metric Units</h3>
+              <ul class="text-white small">
+                <li><strong>Square Meter (m²):</strong> Base metric unit for area</li>
+                <li><strong>Square Kilometer (km²):</strong> 1 km² = 1,000,000 m²</li>
+                <li><strong>Hectare:</strong> 1 hectare = 10,000 m²</li>
+                <li><strong>Square Centimeter (cm²):</strong> 1 m² = 10,000 cm²</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">📏 Imperial Units</h3>
+              <ul class="text-white small">
+                <li><strong>Square Foot (ft²):</strong> 1 ft² = 144 in²</li>
+                <li><strong>Square Yard (yd²):</strong> 1 yd² = 9 ft²</li>
+                <li><strong>Acre:</strong> 1 acre = 43,560 ft²</li>
+                <li><strong>Square Mile (mi²):</strong> 1 mi² = 640 acres</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🏡 Real Estate</h3>
+              <ul class="text-white small">
+                <li><strong>1 acre</strong> = 4,047 m² = 43,560 ft²</li>
+                <li><strong>1 hectare</strong> = 2.471 acres</li>
+                <li><strong>Average house lot:</strong> ~0.25 acres</li>
+                <li><strong>Football field:</strong> ~1.32 acres</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🌾 Agriculture</h3>
+              <ul class="text-white small">
+                <li><strong>Farm land:</strong> Usually measured in acres or hectares</li>
+                <li><strong>1 hectare</strong> = ~2.47 acres</li>
+                <li><strong>Small farm:</strong> 10-50 hectares</li>
+                <li><strong>Large farm:</strong> 100+ hectares</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🏢 Construction</h3>
+              <ul class="text-white small">
+                <li><strong>Floor area:</strong> Usually in m² or ft²</li>
+                <li><strong>Carpet area:</strong> Actual usable floor space</li>
+                <li><strong>Built-up area:</strong> Includes walls, balconies</li>
+                <li><strong>Plot area:</strong> Total land area</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🌍 Large Areas</h3>
+              <ul class="text-white small">
+                <li><strong>Countries:</strong> Measured in km²</li>
+                <li><strong>1 km²</strong> = 100 hectares = 247 acres</li>
+                <li><strong>1 mi²</strong> = 2.59 km²</li>
+                <li><strong>City areas:</strong> Usually in km²</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

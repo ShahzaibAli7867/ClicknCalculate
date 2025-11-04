@@ -1,0 +1,374 @@
+
+
+<app-header></app-header>
+
+<div class="calc-page container py-4 text-light">
+  <div class="row">
+    <!-- Calculator Section -->
+    <div class="col-12 col-md-5 col-lg-4">
+      <h1 class="h4 fw-bold mb-2 text-info">🧮 Basic & Scientific Calculator</h1>
+      <div class="calculator-shell shadow-lg rounded-4 p-3 mb-4">
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs nav-fill mb-3" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" [class.active]="activeTab === 'basic'" (click)="activeTab = 'basic'" type="button">
+              🧮 Basic
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" [class.active]="activeTab === 'scientific'" (click)="activeTab = 'scientific'" type="button">
+              🔬 Scientific
+            </button>
+          </li>
+        </ul>
+
+        <!-- Basic Calculator Tab -->
+        <div *ngIf="activeTab === 'basic'">
+        <div class="screen mb-2">{{ displayValue }}</div>
+        <div class="keypad">
+          <div class="row g-1">
+            <div class="col-3"><button class="btn btn-secondary w-100" (click)="memoryClear()">mc</button></div>
+            <div class="col-3"><button class="btn btn-secondary w-100" (click)="memoryRecall()">mr</button></div>
+            <div class="col-3"><button class="btn btn-secondary w-100" (click)="memorySubtract()">m−</button></div>
+            <div class="col-3"><button class="btn btn-secondary w-100" (click)="memoryAdd()">m+</button></div>
+
+            <div class="col-3"><button class="btn btn-secondary w-100" (click)="allClear()">AC</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="sqrt()">√x</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="percent()">%</button></div>
+            <div class="col-3"><button class="btn btn-info w-100" (click)="setOperator('div')">÷</button></div>
+
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('7')">7</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('8')">8</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('9')">9</button></div>
+            <div class="col-3"><button class="btn btn-info w-100" (click)="setOperator('mul')">×</button></div>
+
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('4')">4</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('5')">5</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('6')">6</button></div>
+            <div class="col-3"><button class="btn btn-info w-100" (click)="setOperator('sub')">−</button></div>
+
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('1')">1</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('2')">2</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('3')">3</button></div>
+            <div class="col-3"><button class="btn btn-info w-100" (click)="setOperator('add')">+</button></div>
+
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('0')">0</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDecimal()">.</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="toggleSign()">+/-</button></div>
+            <div class="col-3"><button class="btn btn-success w-100" (click)="equals()">=</button></div>
+
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="pi()">π</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="setOperator('pow')">xʸ</button></div>
+            <div class="col-3"><button class="btn btn-outline-secondary w-100" (click)="round(2)">R2</button></div>
+            <div class="col-3"><button class="btn btn-outline-secondary w-100" (click)="round(0)">R0</button></div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Scientific Calculator Tab -->
+        <div *ngIf="activeTab === 'scientific'">
+        <div class="screen mb-2">{{ displayValue }}</div>
+        <div class="keypad">
+          <div class="row g-1">
+            <!-- Angle Mode & Memory Row -->
+            <div class="col-3">
+              <div class="btn-group btn-group-sm w-100" role="group">
+                <input type="radio" class="btn-check" name="angleMode" id="degMode" [(ngModel)]="angleMode" value="deg" checked>
+                <label class="btn btn-outline-secondary" for="degMode" style="font-size: 0.7rem;">Deg</label>
+                <input type="radio" class="btn-check" name="angleMode" id="radMode" [(ngModel)]="angleMode" value="rad">
+                <label class="btn btn-outline-secondary" for="radMode" style="font-size: 0.7rem;">Rad</label>
+              </div>
+            </div>
+            <div class="col-3"><button class="btn btn-secondary w-100" (click)="memoryRecall()">mr</button></div>
+            <div class="col-3"><button class="btn btn-secondary w-100" (click)="memorySubtract()">m−</button></div>
+            <div class="col-3"><button class="btn btn-secondary w-100" (click)="memoryAdd()">m+</button></div>
+
+            <!-- Row 1: AC, Functions -->
+            <div class="col-3"><button class="btn btn-secondary w-100" (click)="allClear()">AC</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="sqrt()">√x</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="square()">x²</button></div>
+            <div class="col-3"><button class="btn btn-info w-100" (click)="setOperator('div')">÷</button></div>
+
+            <!-- Row 2: Trig Functions -->
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="sin()">sin</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('7')">7</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('8')">8</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('9')">9</button></div>
+
+            <!-- Row 3: Trig Functions -->
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="cos()">cos</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('4')">4</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('5')">5</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('6')">6</button></div>
+
+            <!-- Row 4: Trig Functions -->
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="tan()">tan</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('1')">1</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('2')">2</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('3')">3</button></div>
+
+            <!-- Row 5: Log & Special -->
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="ln()">ln</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDigit('0')">0</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="pressDecimal()">.</button></div>
+            <div class="col-3"><button class="btn btn-dark w-100" (click)="toggleSign()">+/-</button></div>
+
+            <!-- Row 6: More Functions -->
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="log()">log</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="setOperator('pow')">xʸ</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="factorial()">n!</button></div>
+            <div class="col-3"><button class="btn btn-info w-100" (click)="setOperator('mul')">×</button></div>
+
+            <!-- Row 7: Advanced Functions -->
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="exp()">eˣ</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="cube()">x³</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="reciprocal()">1/x</button></div>
+            <div class="col-3"><button class="btn btn-info w-100" (click)="setOperator('sub')">−</button></div>
+
+            <!-- Row 8: Constants & Functions -->
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="pi()">π</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="eulerNumber()">e</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="percent()">%</button></div>
+            <div class="col-3"><button class="btn btn-info w-100" (click)="setOperator('add')">+</button></div>
+
+            <!-- Row 9: Inverse Trig & Roots -->
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="asin()">sin⁻¹</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="acos()">cos⁻¹</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="atan()">tan⁻¹</button></div>
+            <div class="col-3"><button class="btn btn-success w-100" (click)="equals()">=</button></div>
+
+            <!-- Row 10: More Advanced -->
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="powerOf10()">10ˣ</button></div>
+            <div class="col-3"><button class="btn btn-outline-info w-100" (click)="cubeRoot()">³√x</button></div>
+            <div class="col-3"><button class="btn btn-outline-secondary w-100" (click)="round(2)">R2</button></div>
+            <div class="col-3"><button class="btn btn-outline-secondary w-100" (click)="round(0)">R0</button></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-7 col-lg-5">
+      <!-- Basic Calculator Quick Guide -->
+      <div class="functions-section" *ngIf="activeTab === 'basic'">
+        <h2 class="h5 fw-semibold mb-3 text-white">🧮 Basic Calculator – Quick Guide</h2>
+        <h3 class="h6 text-white mt-3 mb-2">Functions</h3>
+        <div class="table-responsive small">
+          <table class="table table-dark table-sm align-middle mb-3">
+            <thead>
+              <tr><th>Key</th><th>Function</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>÷</td><td>Division</td></tr>
+              <tr><td>×</td><td>Multiplication</td></tr>
+              <tr><td>+</td><td>Addition</td></tr>
+              <tr><td>−</td><td>Subtraction</td></tr>
+              <tr><td>=</td><td>Calculate</td></tr>
+              <tr><td>+/-</td><td>Toggle positive/negative</td></tr>
+              <tr><td>√x</td><td>Square root</td></tr>
+              <tr><td>%</td><td>Percentage</td></tr>
+              <tr><td>π</td><td>Pi (3.1415926536)</td></tr>
+              <tr><td>xy</td><td>Exponent / Power</td></tr>
+              <tr><td>R2</td><td>Round to 2 decimals</td></tr>
+              <tr><td>R0</td><td>Round to 0 decimals</td></tr>
+              <tr><td>mc</td><td>Memory clear</td></tr>
+              <tr><td>mr</td><td>Memory recall</td></tr>
+              <tr><td>m+</td><td>Add to memory</td></tr>
+              <tr><td>m−</td><td>Subtract from memory</td></tr>
+              <tr><td>CE</td><td>Clear entry</td></tr>
+              <tr><td>AC</td><td>All clear</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Scientific Calculator Quick Guide -->
+      <div class="functions-section" *ngIf="activeTab === 'scientific'">
+        <h2 class="h5 fw-semibold mb-3 text-white">🔬 Scientific Calculator – Quick Guide</h2>
+        
+        <h3 class="h6 text-white mt-3 mb-2">Trigonometric Functions</h3>
+        <div class="table-responsive small">
+          <table class="table table-dark table-sm align-middle mb-3">
+            <thead>
+              <tr><th>Function</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>sin, cos, tan</td><td>Basic trigonometric functions</td></tr>
+              <tr><td>sin⁻¹, cos⁻¹, tan⁻¹</td><td>Inverse trigonometric functions</td></tr>
+              <tr><td>Deg/Rad</td><td>Toggle angle mode (degrees/radians)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="h6 text-white mt-4 mb-2">Power & Root Functions</h3>
+        <div class="table-responsive small">
+          <table class="table table-dark table-sm align-middle mb-3">
+            <thead>
+              <tr><th>Function</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>x²</td><td>Square</td></tr>
+              <tr><td>x³</td><td>Cube</td></tr>
+              <tr><td>xʸ</td><td>Power (x to the power of y)</td></tr>
+              <tr><td>√x</td><td>Square root</td></tr>
+              <tr><td>³√x</td><td>Cube root</td></tr>
+              <tr><td>ʸ√x</td><td>Nth root</td></tr>
+              <tr><td>1/x</td><td>Reciprocal</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="h6 text-white mt-4 mb-2">Logarithmic & Exponential</h3>
+        <div class="table-responsive small">
+          <table class="table table-dark table-sm align-middle">
+            <thead>
+              <tr><th>Function</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>ln</td><td>Natural logarithm (base e)</td></tr>
+              <tr><td>log</td><td>Common logarithm (base 10)</td></tr>
+              <tr><td>eˣ</td><td>e to the power of x</td></tr>
+              <tr><td>10ˣ</td><td>10 to the power of x</td></tr>
+              <tr><td>n!</td><td>Factorial</td></tr>
+              <tr><td>π</td><td>Pi constant (3.14159...)</td></tr>
+              <tr><td>e</td><td>Euler's number (2.71828...)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  
+
+  <div class="row mt-5">
+    <div class="col-12">
+      <div class="comprehensive-guide">
+        <h2 class="h4 fw-bold mb-4 text-white text-center">📚 Complete Basic & Scientific Calculator Guide</h2>
+        
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">💾 Memory Functions</h3>
+              <ul class="text-white small">
+                <li><strong>mc:</strong> Clear memory</li>
+                <li><strong>mr:</strong> Recall memory value</li>
+                <li><strong>m+:</strong> Add displayed number to memory</li>
+                <li><strong>m-:</strong> Subtract displayed number from memory</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">+ - × ÷ Basic Operations</h3>
+              <ul class="text-white small">
+                <li><strong>Addition/Subtraction:</strong> 3 + 5 = 8, 7 - 9 = -2</li>
+                <li><strong>Multiplication/Division:</strong> 13 × 3 = 39, 25 ÷ 2 = 12.5</li>
+                <li><strong>Repeating:</strong> Use = repeatedly to repeat the last operation.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🧠 Exponents and Roots</h3>
+              <ul class="text-white small">
+                <li>√36 = 6</li>
+                <li>6² = 36, 6⁵ = 7776</li>
+                <li><strong>1/x:</strong> reciprocal (e.g., 1/5 = 0.2)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">⚙️ Order of Operations (PEMDAS)</h3>
+              <p class="text-white small mb-2">Use parentheses or input in order:</p>
+              <ul class="text-white small">
+                <li>3 + 5 × 2 ÷ 4 = 4</li>
+                <li>5 × 2 ÷ 4 + 3 = 5.5</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">💰 Financial Calculations</h3>
+              <ul class="text-white small">
+                <li><strong>PV = FV / (1+i)ⁿ</strong> → Present Value</li>
+                <li><strong>FV = PV(1+i)ⁿ</strong> → Future Value</li>
+                <li><strong>Example:</strong> FV of 10,000 at 7.3% for 5 years = 14,223.24</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">📊 Percentage Calculations</h3>
+              <ul class="text-white small">
+                <li>12 + 10% = 13.2 (add 10%)</li>
+                <li>10 − 10% = 9 (subtract 10%)</li>
+                <li>15 × 10% = 1.5 (find % of number)</li>
+                <li>15 ÷ 10% = 150 (find base number)</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🧾 Advanced % Examples</h3>
+              <ul class="text-white small">
+                <li><strong>Tax Addition:</strong> 35.25 + 7.5% = 37.89</li>
+                <li><strong>Discount:</strong> 40 − 25% = 30 → + 7.5% tax = 32.25</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🧹 Correcting Mistakes</h3>
+              <ul class="text-white small">
+                <li><strong>CE</strong> clears the last entry</li>
+                <li><strong>AC</strong> clears everything</li>
+                <li><strong>Backspace/Delete</strong> removes digits one by one</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🔬 Scientific Functions</h3>
+              <ul class="text-white small">
+                <li><strong>Trigonometry:</strong> sin, cos, tan (and inverse functions)</li>
+                <li><strong>Powers:</strong> x², x³, xʸ, eˣ, 10ˣ</li>
+                <li><strong>Roots:</strong> √x, ³√x, ʸ√x</li>
+                <li><strong>Logarithms:</strong> ln (natural), log (base 10)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">📐 Trigonometry Examples</h3>
+              <ul class="text-white small">
+                <li><strong>sin(30°)</strong> = 0.5</li>
+                <li><strong>cos(60°)</strong> = 0.5</li>
+                <li><strong>tan(45°)</strong> = 1</li>
+                <li><strong>sin⁻¹(0.5)</strong> = 30° (in Deg mode)</li>
+                <li>Toggle between Deg/Rad for angle units</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="guide-section">
+              <h3 class="h6 fw-semibold text-white mb-3">🌟 Constants & Special Functions</h3>
+              <ul class="text-white small">
+                <li><strong>π (Pi):</strong> 3.14159265...</li>
+                <li><strong>e (Euler's):</strong> 2.71828182...</li>
+                <li><strong>n! (Factorial):</strong> 5! = 120</li>
+                <li><strong>1/x:</strong> Reciprocal function</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

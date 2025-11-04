@@ -1,0 +1,50 @@
+/* Header component styles */
+header, .home-container {
+  background-color: #1a2a4a !important;
+}
+
+h1 {
+    //color: #ffffff !important; // White text for visibility on dark background
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    
+    img.site-logo {
+      height: 42px;
+      width: auto;
+      vertical-align: middle;
+      margin-right: 10px;
+      border-radius: 6px;
+      
+    }
+  }
+
+/* Override Bootstrap text classes to ensure visibility */
+.text-light, .text-info {
+  color: #ffffff !important;
+}
+
+.back-btn-container {
+  position: fixed;
+  top: 10px;
+  color: #1a2a4a;
+  left: 20px;
+  z-index: 1000;
+  
+  .back-btn {
+   // background: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    background: #2c4370;
+   // border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #f2f3f7;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    
+    &:hover {
+      background: #596a8e;
+      border-color: #596a8e;
+      color: #eff1f3;
+      transform: translateX(-2px);
+    }
+  }
+}

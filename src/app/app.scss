@@ -1,0 +1,12 @@
+/* App-level styles with consistent background color */
+app-root {
+  background-color: #1a2a4a !important;
+  min-height: 100vh;
+  display: block;
+}
+
+/* Ensure router outlet and all pages use the same background */
+router-outlet + * {
+  background-color: #4d628c !important;
+  min-height: 100vh;
+}

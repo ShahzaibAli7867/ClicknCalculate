@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Global background color for the entire application */
+body, html {
+  background-color: #1a2a4a !important;
+  min-height: 100vh;
+}
+
+/* Ensure all main containers use the same background */
+.app-container, .main-container, .page-container {
+  background-color: #1a2a4a !important;
+  min-height: 100vh;
+}

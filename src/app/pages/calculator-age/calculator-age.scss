@@ -1,0 +1,555 @@
+.area-page {
+  background: #1a2a4a;
+  min-height: 100vh;
+  margin-left: 70px;
+  
+  @media (max-width: 1200px) {
+    margin-left: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    margin-left: 15px;
+  }
+  
+  @media (max-width: 576px) {
+    margin-left: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    margin-left: 5px;
+  }
+  
+  .calculator-shell {
+    background: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    padding: 2rem;
+    max-width: 500px;
+    width: 100%;
+    
+    @media (max-width: 768px) {
+      padding: 1.5rem;
+    }
+    
+    @media (max-width: 576px) {
+      padding: 1.25rem;
+    }
+    
+    @media (max-width: 480px) {
+      padding: 1rem;
+    }
+  }
+  
+  // Tab Navigation Styling
+  .nav-tabs {
+    border-bottom: 2px solid #dee2e6;
+    margin-bottom: 1.5rem;
+    
+    .nav-item {
+      margin-bottom: 0;
+      
+      .nav-link {
+        border: none;
+        border-bottom: 3px solid transparent;
+        color: #6c757d;
+        font-weight: 600;
+        padding: 0.75rem 1.5rem;
+        transition: all 0.2s ease;
+        background: transparent;
+        
+        &:hover {
+          color: #495057;
+          background: #f8f9fa;
+          border-radius: 8px 8px 0 0;
+        }
+        
+        &.active {
+          color: #000000;
+          border-bottom-color: #ffd700;
+          background: #f8f9fa;
+        }
+        
+        @media (max-width: 576px) {
+          padding: 0.5rem 1rem;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+  
+  .form-label {
+    color: #212529;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+  
+  .form-select, .form-control {
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    color: #212529;
+    background-color: #ffffff;
+    
+    &:focus {
+      border-color: #ffd700;
+      box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+      outline: none;
+    }
+    
+    &::placeholder {
+      color: #adb5bd;
+    }
+    
+    @media (max-width: 576px) {
+      padding: 0.625rem 0.875rem;
+      font-size: 0.95rem;
+    }
+  }
+  
+  // Radio Button Styling
+  .form-check-input {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.125rem;
+    border: 2px solid #dee2e6;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    
+    &:checked {
+      background-color: #ffd700;
+      border-color: #ffc107;
+    }
+    
+    &:focus {
+      border-color: #ffd700;
+      box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+    }
+  }
+  
+  .form-check-label {
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .form-select-lg {
+    padding: 0.875rem 1.125rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+  }
+  
+  .form-control-lg {
+    padding: 0.875rem 1.125rem;
+    font-size: 1.125rem;
+  }
+  
+  .btn {
+    border-radius: 8px;
+    padding: 0.875rem 1.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    
+    &:active {
+      transform: scale(0.98);
+    }
+    
+    @media (max-width: 576px) {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.95rem;
+    }
+  }
+  
+  .btn-secondary {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+    color: #495057;
+    
+    &:hover {
+      background-color: #343a40;
+      border-color: #343a40;
+      color: #ffffff;
+    }
+  }
+  
+  .btn-outline-secondary {
+    background-color: #e9ecef;
+    border: 2px solid #adb5bd;
+    color: #495057;
+    
+    &:hover {
+      background-color: #ffd700;
+      border-color: #ffc107;
+      color: #000000;
+    }
+  }
+  
+  .btn-calculate {
+    background-color: #ffd700;
+    border-color: #ffc107;
+    color: #000000;
+    font-weight: 700;
+    
+    &:hover {
+      background-color: #ffed4e;
+      border-color: #ffc107;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  .answer-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #dee2e6;
+  }
+  
+  .result-box {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    
+    .result-label {
+      color: #6c757d;
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .result-value {
+      color: #212529;
+      font-size: 1.5rem;
+      font-weight: 700;
+      font-family: 'Arial', sans-serif;
+      word-wrap: break-word;
+      
+      @media (max-width: 576px) {
+        font-size: 1.25rem;
+      }
+    }
+  }
+  
+  // Card Styling for Height Calculator Results
+  .card {
+    transition: all 0.2s ease;
+    border-radius: 12px;
+    
+    &.bg-light {
+      background: #f8f9fa !important;
+      border: 2px solid #dee2e6 !important;
+    }
+    
+    &:hover {
+      border-color: #ffd700 !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  }
+  
+  // Professional Headings
+  h1, h2, h3, h4, h5, h6 {
+    &.text-info {
+      color: #ffd700 !important;
+      font-weight: 700;
+    }
+    
+    &.text-dark {
+      color: #212529 !important;
+      font-weight: 600;
+    }
+  }
+  
+  .functions-section {
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    h2, h3 {
+      color: white;
+    }
+    
+    @media (max-width: 768px) {
+      padding: 0.5rem;
+      
+      h2, h3 {
+        font-size: 1.1rem;
+      }
+      
+      .small {
+        font-size: 0.85rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      h2, h3 {
+        font-size: 1rem;
+      }
+      
+      .small {
+        font-size: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h2, h3 {
+        font-size: 0.9rem;
+      }
+      
+      .small {
+        font-size: 0.75rem;
+      }
+    }
+  }
+  
+  .comprehensive-guide {
+    padding: 2rem 1rem;
+    
+    .guide-section {
+      padding: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+      
+      &:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+      
+      h3 {
+        color: white;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+      
+      ul {
+        margin-bottom: 0;
+        
+        li {
+          margin-bottom: 0.75rem;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+          
+          strong {
+            color: #ffd700;
+          }
+        }
+      }
+      
+      p {
+        color: white;
+        margin-bottom: 0.5rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      padding: 1.5rem 0.5rem;
+      
+      .guide-section {
+        padding: 1rem;
+        
+        h3 {
+          font-size: 1rem;
+        }
+        
+        .small {
+          font-size: 0.85rem;
+        }
+      }
+    }
+    
+    @media (max-width: 576px) {
+      padding: 1rem 0.5rem;
+      
+      .guide-section {
+        padding: 0.875rem;
+        
+        h3 {
+          font-size: 0.95rem;
+        }
+        
+        .small {
+          font-size: 0.8rem;
+        }
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .guide-section {
+        padding: 0.75rem;
+        
+        h3 {
+          font-size: 0.9rem;
+        }
+        
+        .small {
+          font-size: 0.75rem;
+        }
+      }
+    }
+  }
+  
+  .table {
+    --bs-table-bg: transparent;
+    border-radius: 12px;
+    overflow: hidden;
+    
+    thead {
+      background: rgba(255, 255, 255, 0.1) !important;
+      
+      th {
+        color: #ffffff !important;
+        border: none !important;
+        font-weight: 600 !important;
+        padding: 0.875rem 1rem !important;
+        text-align: left !important;
+        vertical-align: middle !important;
+        font-size: 0.875rem;
+      }
+    }
+    
+    tbody {
+      background: rgba(255, 255, 255, 0.03);
+      
+      tr {
+        transition: all 0.2s ease;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        
+        &:hover {
+          background: rgba(255, 255, 255, 0.05);
+        }
+      }
+      
+      td {
+        color: rgba(255, 255, 255, 0.95) !important;
+        border: none !important;
+        padding: 0.75rem 1rem !important;
+        vertical-align: middle;
+        
+        strong {
+          color: #ffd700;
+          font-weight: 600;
+        }
+      }
+    }
+    
+    &.table-dark {
+      background: rgba(0, 0, 0, 0.2);
+    }
+    
+    @media (max-width: 768px) {
+      thead th, tbody td {
+        padding: 0.625rem 0.75rem !important;
+        font-size: 0.875rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      thead th, tbody td {
+        padding: 0.5rem 0.625rem !important;
+        font-size: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      thead th, tbody td {
+        padding: 0.4rem 0.5rem !important;
+        font-size: 0.75rem;
+      }
+    }
+  }
+  
+  .table-responsive {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 360px) {
+  .area-page {
+    background: #1a2a4a;
+    margin-left: 0; 
+    padding: 0 10px;
+  }
+}
+
+// Smooth Scroll Behavior
+html {
+  scroll-behavior: smooth;
+}
+
+// Loading Animation
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+// Placeholder Text Enhancement
+::placeholder {
+  color: #adb5bd;
+  opacity: 0.7;
+}
+
+// Selection Styling
+::selection {
+  background: rgba(255, 215, 0, 0.3);
+  color: #000000;
+}
+
+::-moz-selection {
+  background: rgba(255, 215, 0, 0.3);
+  color: #000000;
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffd700;
+  border-radius: 10px;
+  
+  &:hover {
+    background: #ffed4e;
+  }
+}
+
+// Input Number Spinner Styling
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+// Focus Visible Outline
+*:focus-visible {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+}
