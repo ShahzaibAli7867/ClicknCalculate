@@ -26,6 +26,12 @@
               🔤 Case Converter
             </button>
           </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" [class.active]="activeTab === 'numberToWords'"
+              (click)="setActiveTab('numberToWords')" type="button">
+              🔢➡️📝 Number to Words
+            </button>
+          </li>
         </ul>
 
         <!-- Word Counter Tab -->
@@ -113,7 +119,7 @@
           <div *ngIf="reversedText">
             <label class="form-label text-dark fw-semibold">Reversed Text:</label>
             <div class="result-box p-3 mb-3">
-              <p class="mb-0 text-break">{{ reversedText }}</p>
+              <p class="mb-0 text-break text-dark fw-semibold">{{ reversedText }}</p>
             </div>
             <button class="btn btn-outline-secondary w-100" (click)="copyReversedText()">
               <i class="bi bi-clipboard me-2"></i>Copy to Clipboard
@@ -153,9 +159,39 @@
           <div *ngIf="convertedText">
             <label class="form-label text-dark fw-semibold">Converted Text:</label>
             <div class="result-box p-3 mb-3">
-              <p class="mb-0 text-break">{{ convertedText }}</p>
+              <p class="mb-0 text-break text-dark fw-semibold">{{ convertedText }}</p>
             </div>
             <button class="btn btn-outline-secondary w-100" (click)="copyConvertedText()">
+              <i class="bi bi-clipboard me-2"></i>Copy to Clipboard
+            </button>
+          </div>
+        </div>
+
+        <!-- Numbers to Words Tab -->
+        <div *ngIf="activeTab === 'numberToWords'">
+          <div class="text-center mb-4">
+            <h2 class="h5 text-dark fw-bold mb-3">Numbers to Words Converter</h2>
+            <p class="text-dark small">Convert numbers to their word representation.</p>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label text-dark fw-semibold">Enter a number:</label>
+            <input type="text" class="form-control form-control-lg" placeholder="e.g., 88888" [(ngModel)]="numberInput"
+              (input)="convertNumberToWords()">
+            <small class="text-muted">Supports numbers up to 999 trillion, decimals, and negative numbers</small>
+          </div>
+
+          <div class="d-flex gap-3 mb-4">
+            <button class="btn btn-secondary flex-fill" (click)="clearNumberConverter()">Clear</button>
+            <button class="btn btn-calculate flex-fill" (click)="convertNumberToWords()">Convert</button>
+          </div>
+
+          <div *ngIf="numberInWords">
+            <label class="form-label text-dark fw-semibold">Result:</label>
+            <div class="result-box p-3 mb-3">
+              <p class="mb-0 text-break text-dark fw-semibold">{{ numberInWords }}</p>
+            </div>
+            <button class="btn btn-outline-secondary w-100" (click)="copyNumberInWords()">
               <i class="bi bi-clipboard me-2"></i>Copy to Clipboard
             </button>
           </div>
@@ -223,6 +259,35 @@
           <li class="mb-2">Preparing text for programming</li>
           <li class="mb-2">Creating stylistic text for social media</li>
           <li class="mb-2">Standardizing text formatting</li>
+        </ul>
+      </div>
+
+      <!-- Numbers to Words Info -->
+      <div class="functions-section mb-4" *ngIf="activeTab === 'numberToWords'">
+        <h2 class="h5 fw-semibold mb-3 text-white">🔢➡️📝 Numbers to Words – Quick Reference</h2>
+
+        <h3 class="h6 text-white mt-3 mb-2">How It Works</h3>
+        <p class="text-white small">This tool converts numeric values into their written word form. Simply enter any
+          number and get the text representation instantly.</p>
+
+        <h3 class="h6 text-white mt-4 mb-2">Examples</h3>
+        <div class="bg-dark p-3 rounded mb-3">
+          <p class="mb-1 text-muted small">Input: 88888</p>
+          <p class="mb-0 text-white">eighty-eight thousand eight hundred eighty-eight</p>
+          <p class="mb-1 text-muted small mt-3">Input: 1234567</p>
+          <p class="mb-0 text-white">one million two hundred thirty-four thousand five hundred sixty-seven</p>
+          <p class="mb-1 text-muted small mt-3">Input: -42</p>
+          <p class="mb-0 text-white">negative forty-two</p>
+          <p class="mb-1 text-muted small mt-3">Input: 3.14</p>
+          <p class="mb-0 text-white">three point one four</p>
+        </div>
+
+        <h3 class="h6 text-white mt-4 mb-2">Supported Features</h3>
+        <ul class="text-white small">
+          <li class="mb-2"><strong>Large Numbers:</strong> Up to 999 trillion</li>
+          <li class="mb-2"><strong>Negative Numbers:</strong> Automatically adds "negative" prefix</li>
+          <li class="mb-2"><strong>Decimals:</strong> Converts decimal points and digits</li>
+          <li class="mb-2"><strong>Real-time:</strong> Updates as you type</li>
         </ul>
       </div>
     </div>
@@ -321,6 +386,36 @@
             <div class="alert alert-success mt-4 p-3 small bg-dark border-success">
               <i class="bi bi-check-circle-fill me-2"></i> <strong>Note:</strong> The converter preserves line breaks
               and paragraph structure.
+            </div>
+          </div>
+        </div>
+
+        <!-- Numbers to Words Guide -->
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+          <div class="guide-section p-4 rounded-3 h-100">
+            <h3 class="h5 fw-semibold text-white mb-3">🔢➡️📝 Numbers to Words</h3>
+            <p class="text-white-50 small mb-3">Convert any number into its written word form instantly.</p>
+
+            <h4 class="h6 text-white mb-2">Features:</h4>
+            <ul class="text-white small">
+              <li class="mb-2"><strong>Whole Numbers</strong> - Converts integers up to 999 trillion</li>
+              <li class="mb-2"><strong>Negative Numbers</strong> - Handles negative values with "negative" prefix</li>
+              <li class="mb-2"><strong>Decimal Numbers</strong> - Converts decimal points and fractional parts</li>
+              <li class="mb-2"><strong>Real-time Conversion</strong> - Updates as you type</li>
+              <li class="mb-2"><strong>Copy to Clipboard</strong> - Easy copying of results</li>
+            </ul>
+
+            <h4 class="h6 text-white mt-4 mb-2">Best For:</h4>
+            <ul class="text-white small">
+              <li class="mb-2">✓ Writing checks and financial documents</li>
+              <li class="mb-2">✓ Legal and formal documentation</li>
+              <li class="mb-2">✓ Educational purposes and learning</li>
+              <li class="mb-2">✓ Creating invoices and receipts</li>
+            </ul>
+
+            <div class="alert alert-info mt-4 p-3 small bg-dark border-info">
+              <i class="bi bi-info-circle-fill me-2"></i> <strong>Example:</strong> 88888 becomes "eighty-eight thousand
+              eight hundred eighty-eight"
             </div>
           </div>
         </div>
