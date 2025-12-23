@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
   standalone: true,
@@ -13,5 +13,7 @@ export class Header {
   goBack() {
     this.router.navigate(['/home']);
   }
-  constructor(private router: Router) {}
+
+
+  constructor(private router: Router) { }
 }

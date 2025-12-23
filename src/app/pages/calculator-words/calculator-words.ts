@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Header } from "../../shared/components/header/header";
-import { Footer } from "../../shared/components/footer/footer";
+import { Header } from '../../shared/components/header/header';
+import { Footer } from '../../shared/components/footer/footer';
 
 @Component({
   selector: 'app-calculator-words',

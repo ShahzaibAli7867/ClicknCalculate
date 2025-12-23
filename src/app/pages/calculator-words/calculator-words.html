@@ -9,9 +9,9 @@
         <!-- Tab Navigation -->
         <ul class="nav nav-tabs nav-fill mb-3" role="tablist">
           <li class="nav-item" role="presentation">
-            <button class="nav-link" [class.active]="activeTab === 'counter'" (click)="setActiveTab('counter')"
-              type="button">
-              🔢 Counter
+            <button class="nav-link" [class.active]="activeTab === 'numberToWords'"
+              (click)="setActiveTab('numberToWords')" type="button">
+              🔢➡️📝 Number to Words
             </button>
           </li>
           <li class="nav-item" role="presentation">
@@ -27,9 +27,9 @@
             </button>
           </li>
           <li class="nav-item" role="presentation">
-            <button class="nav-link" [class.active]="activeTab === 'numberToWords'"
-              (click)="setActiveTab('numberToWords')" type="button">
-              🔢➡️📝 Number to Words
+            <button class="nav-link" [class.active]="activeTab === 'counter'" (click)="setActiveTab('counter')"
+              type="button">
+              🔢 Counter
             </button>
           </li>
         </ul>

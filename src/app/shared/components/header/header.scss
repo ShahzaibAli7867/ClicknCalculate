@@ -1,26 +1,44 @@
 /* Header component styles */
-header, .home-container {
+header,
+.home-container {
   background-color: #1a2a4a !important;
 }
 
 h1 {
-    //color: #ffffff !important; // White text for visibility on dark background
-    font-weight: 700;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    
-    img.site-logo {
-      height: 42px;
-      width: auto;
-      vertical-align: middle;
-      margin-right: 10px;
-      border-radius: 6px;
-      
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff !important;
+  font-weight: 750;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+
+  img.site-logo {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+    background-color: white;
+    padding: 4px;
+    margin-right: 16px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
 
+  .logo-link {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
 /* Override Bootstrap text classes to ensure visibility */
-.text-light, .text-info {
+.text-light,
+.text-info {
   color: #ffffff !important;
 }
 
@@ -30,16 +48,16 @@ h1 {
   color: #1a2a4a;
   left: 20px;
   z-index: 1000;
-  
+
   .back-btn {
-   // background: rgba(255, 255, 255, 0.1);
+    // background: rgba(255, 255, 255, 0.1);
     border-radius: 5px;
     background: #2c4370;
-   // border: 1px solid rgba(255, 255, 255, 0.3);
+    // border: 1px solid rgba(255, 255, 255, 0.3);
     color: #f2f3f7;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
-    
+
     &:hover {
       background: #596a8e;
       border-color: #596a8e;
