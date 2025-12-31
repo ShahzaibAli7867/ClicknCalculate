@@ -1,14 +1,14 @@
 /* Header component styles */
 header,
 .home-container {
-  background-color: #1a2a4a !important;
+  background-color: #E3F2FD !important;
 }
 
 h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff !important;
+  color: #1a2a4a !important;
   font-weight: 750;
   font-size: 3rem;
   margin-bottom: 1rem;
@@ -39,7 +39,7 @@ h1 {
 /* Override Bootstrap text classes to ensure visibility */
 .text-light,
 .text-info {
-  color: #ffffff !important;
+  color: #1a2a4a !important;
 }
 
 .back-btn-container {

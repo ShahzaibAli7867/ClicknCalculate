@@ -1,51 +1,51 @@
 .calc-page {
-  background: #1a2a4a; 
+  background: #E3F2FD;
   margin-left: 70px;
-  
+
   @media (max-width: 1200px) {
     margin-left: 30px;
   }
-  
+
   @media (max-width: 768px) {
     margin-left: 15px;
   }
-  
+
   @media (max-width: 576px) {
     margin-left: 10px;
   }
-  
+
   @media (max-width: 480px) {
     margin-left: 5px;
   }
-  
+
   .text-info {
-    color: #ffd700 !important;
+    color: #000000 !important;
   }
-  
+
   .calculator-shell {
     background: #ffffff;
     border: 1px solid #d0d0d0;
     border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     padding: 2rem;
     max-width: 500px;
     width: 100%;
-    
+
     @media (max-width: 768px) {
       padding: 1.5rem;
       max-width: 450px;
     }
-    
+
     @media (max-width: 576px) {
       padding: 1rem;
       max-width: 380px;
     }
-    
+
     @media (max-width: 480px) {
       padding: 0.875rem;
       max-width: 320px;
     }
-    
+
     @media (max-width: 360px) {
       padding: 0.75rem;
       max-width: 280px;
@@ -56,10 +56,10 @@
   .nav-tabs {
     border-bottom: 2px solid #dee2e6;
     margin-bottom: 1.5rem;
-    
+
     .nav-item {
       margin-bottom: 0;
-      
+
       .nav-link {
         border: none;
         border-bottom: 3px solid transparent;
@@ -68,19 +68,19 @@
         padding: 0.75rem 1.5rem;
         transition: all 0.2s ease;
         background: transparent;
-        
+
         &:hover {
           color: #495057;
           background: #f8f9fa;
           border-radius: 8px 8px 0 0;
         }
-        
+
         &.active {
           color: #000000;
-          border-bottom-color: #ffd700;
+          border-bottom-color: #000000;
           background: #f8f9fa;
         }
-        
+
         @media (max-width: 576px) {
           padding: 0.5rem 1rem;
           font-size: 0.9rem;
@@ -101,31 +101,31 @@
     color: #212529;
     font-weight: 600;
     font-family: 'Arial', sans-serif;
-    box-shadow: inset 0 2px 6px rgba(0,0,0,0.08);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.08);
     word-wrap: break-word;
     overflow-wrap: break-word;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    
+
     @media (max-width: 768px) {
       font-size: 1.5rem;
       padding: 0.875rem 1rem;
       min-height: 70px;
     }
-    
+
     @media (max-width: 576px) {
       font-size: 1.3rem;
       padding: 0.75rem 1rem;
       min-height: 65px;
     }
-    
+
     @media (max-width: 480px) {
       font-size: 1.2rem;
       padding: 0.625rem 0.875rem;
       min-height: 60px;
     }
-    
+
     @media (max-width: 360px) {
       font-size: 1.1rem;
       padding: 0.5rem 0.75rem;
@@ -149,87 +149,92 @@
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-    
+
     &:active {
       transform: translateY(1px);
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
     }
-    
+
     &:hover {
-      box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
       transform: translateY(-1px);
     }
-    
+
     @media (max-width: 768px) {
       padding: 10px 6px;
       font-size: 0.85rem;
       min-height: 44px;
     }
-    
+
     @media (max-width: 576px) {
       padding: 8px 4px;
       font-size: 0.8rem;
       min-height: 40px;
     }
-    
+
     @media (max-width: 480px) {
       padding: 6px 3px;
       font-size: 0.75rem;
       min-height: 36px;
     }
-    
+
     @media (max-width: 360px) {
       padding: 5px 2px;
       font-size: 0.7rem;
       min-height: 32px;
     }
-    
+
     &.btn-dark {
       background-color: #ffffff;
       border-color: #dee2e6;
       color: #212529;
-      
+
       &:hover {
         background-color: #f8f9fa;
         border-color: #adb5bd;
       }
-      
+
       &:active {
         background-color: #e9ecef;
         border-color: #adb5bd;
       }
     }
-    
-    &.btn-secondary, &.btn-outline-warning, &.btn-outline-light, &.btn-outline-info, &.btn-outline-secondary {
+
+    &.btn-secondary,
+    &.btn-outline-warning,
+    &.btn-outline-light,
+    &.btn-outline-info,
+    &.btn-outline-secondary {
       background-color: #e9ecef;
       border-color: #adb5bd;
       color: #495057;
-      
+
       &:hover {
         background-color: #d3d9df;
         border-color: #6c757d;
         color: #212529;
       }
-      
+
       &:active {
         background-color: #c8cfd6;
         border-color: #6c757d;
       }
     }
-    
-    &.btn-info, &.btn-success {
-      background-color: #ffd700;
-      border-color: #ffc107;
+
+    &.btn-info,
+    &.btn-success {
+      background-color: #42A5F5;
+      border-color: #42A5F5;
       color: black;
       font-weight: 700;
-      
+
       &:hover {
-        background-color: #ffed4e;
-        border-color: #ffc107;
+        background-color: #64B5F6;
+        border-color: #42A5F5;
       }
-      
+
       &:active {
-        background-color: #ffc107;
+        background-color: #000000;
       }
     }
   }
@@ -238,7 +243,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 300px; 
+    height: 300px;
     background-color: #343a40;
     border: 1px solid #495057;
     border-radius: 12px;
@@ -246,38 +251,44 @@
 
   .functions-section {
     padding: 1rem;
-    
-    h2, h3 {
-      color: white;
+
+    h2,
+    h3 {
+      color: #000000;
     }
-    
+
     @media (max-width: 768px) {
       padding: 0.5rem;
-      
-      h2, h3 {
+
+      h2,
+      h3 {
         font-size: 1.1rem;
       }
-      
+
       .small {
         font-size: 0.85rem;
       }
     }
-    
+
     @media (max-width: 576px) {
-      h2, h3 {
+
+      h2,
+      h3 {
         font-size: 1rem;
       }
-      
+
       .small {
         font-size: 0.8rem;
       }
     }
-    
+
     @media (max-width: 480px) {
-      h2, h3 {
+
+      h2,
+      h3 {
         font-size: 0.9rem;
       }
-      
+
       .small {
         font-size: 0.75rem;
       }
@@ -286,7 +297,7 @@
 
   .comprehensive-guide {
     padding: 2rem 1rem;
-    
+
     .guide-section {
       padding: 1.5rem;
       background: rgba(255, 255, 255, 0.05);
@@ -294,76 +305,77 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
       height: 100%;
-      
+
       &:hover {
         background: rgba(255, 255, 255, 0.08);
         border-color: rgba(255, 255, 255, 0.2);
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       }
-      
+
       h3 {
-        color: white;
+        color: #000000;
         margin-bottom: 1rem;
       }
-      
+
       ul {
         margin-bottom: 0;
-        
+
         li {
           margin-bottom: 0.5rem;
-          
+
           &:last-child {
             margin-bottom: 0;
           }
         }
       }
-      
+
       p {
-        color: white;
+        color: #000000;
         margin-bottom: 0.5rem;
       }
     }
-        @media (max-width: 768px) {
+
+    @media (max-width: 768px) {
       padding: 1.5rem 0.5rem;
-      
+
       .guide-section {
         padding: 1rem;
-        
+
         h3 {
           font-size: 1rem;
         }
-        
+
         .small {
           font-size: 0.85rem;
         }
       }
     }
-    
+
     @media (max-width: 576px) {
       padding: 1rem 0.5rem;
-      
+
       .guide-section {
         padding: 0.875rem;
-        
+
         h3 {
           font-size: 0.95rem;
         }
-        
+
         .small {
           font-size: 0.8rem;
         }
       }
     }
-    
+
     @media (max-width: 480px) {
       .guide-section {
         padding: 0.75rem;
-        
+
         h3 {
           font-size: 0.9rem;
         }
-        
+
         .small {
           font-size: 0.75rem;
         }
@@ -374,13 +386,13 @@
 
   .table {
     --bs-table-bg: transparent;
-    
+
     thead {
       background-color: #010101 !important;
-      
+
       th {
         background-color: #343a40 !important;
-        color:rgb(244, 240, 240) !important;
+        color: #ffffff !important;
         border-bottom: 2px solid #495057 !important;
         font-weight: 600 !important;
         padding: 0.75rem !important;
@@ -388,31 +400,37 @@
         vertical-align: middle !important;
       }
     }
-    
+
     tbody {
       td {
-        color:rgb(247, 247, 247) !important;
+        color: #000000 !important;
         border-color: #000000 !important;
         padding: 0.5rem 0.75rem !important;
       }
     }
-    
+
     @media (max-width: 768px) {
-      thead th, tbody td {
+
+      thead th,
+      tbody td {
         padding: 0.4rem 0.5rem !important;
         font-size: 0.9rem;
       }
     }
-    
+
     @media (max-width: 576px) {
-      thead th, tbody td {
+
+      thead th,
+      tbody td {
         padding: 0.3rem 0.4rem !important;
         font-size: 0.8rem;
       }
     }
-    
+
     @media (max-width: 480px) {
-      thead th, tbody td {
+
+      thead th,
+      tbody td {
         padding: 0.25rem 0.3rem !important;
         font-size: 0.75rem;
       }
@@ -423,45 +441,45 @@
 
 @media (max-width: 360px) {
   .calc-page {
-    background: #1a2a4a;
-    margin-left: 0; 
-    padding: 0 15px; 
-  
+    background: #E3F2FD;
+    margin-left: 0;
+    padding: 0 15px;
+
     @media (min-width: 1200px) {
       padding: 0 70px;
     }
-  
+
     @media (min-width: 768px) and (max-width: 1199px) {
       padding: 0 30px;
     }
-  
+
     @media (max-width: 767px) {
       padding: 0 10px;
     }
   }
-  
+
   .calculator-shell {
     border: 1px solid #d0d0d0;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15), inset 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     max-width: 100%;
     width: 100%;
-    
+
     @media (max-width: 768px) {
       padding: 0.875rem;
       max-width: 350px;
     }
-    
+
     @media (max-width: 576px) {
       padding: 0.75rem;
       max-width: 320px;
     }
-    
+
     @media (max-width: 480px) {
       padding: 0.625rem;
     }
-    
+
     @media (max-width: 360px) {
       padding: 0.5rem;
     }
@@ -479,31 +497,31 @@
     color: black;
     font-weight: bold;
     font-family: 'Arial', sans-serif;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
     word-wrap: break-word;
     overflow-wrap: break-word;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    
+
     @media (max-width: 768px) {
       font-size: 1.3rem;
       padding: 10px 14px;
       min-height: 60px;
     }
-    
+
     @media (max-width: 576px) {
       font-size: 1.2rem;
       padding: 8px 12px;
       min-height: 55px;
     }
-    
+
     @media (max-width: 480px) {
       font-size: 1.1rem;
       padding: 6px 10px;
       min-height: 50px;
     }
-    
+
     @media (max-width: 360px) {
       font-size: 1rem;
       padding: 5px 8px;
@@ -527,121 +545,132 @@
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-    
+
     &:active {
       transform: scale(0.95);
-      box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
     }
-    
+
     &:hover {
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-    
+
     @media (max-width: 768px) {
       padding: 10px 6px;
       font-size: 0.85rem;
       min-height: 44px;
     }
-    
+
     @media (max-width: 576px) {
       padding: 8px 4px;
       font-size: 0.8rem;
       min-height: 40px;
     }
-    
+
     @media (max-width: 480px) {
       padding: 6px 3px;
       font-size: 0.75rem;
       min-height: 36px;
     }
-    
+
     @media (max-width: 360px) {
       padding: 5px 2px;
       font-size: 0.7rem;
       min-height: 32px;
     }
-    
+
     &.btn-dark {
       background-color: #ffffff;
       border-color: #ddd;
       color: black;
-      
+
       &:hover {
         background-color: #f8f9fa;
         border-color: #ccc;
       }
-      
+
       &:active {
         background-color: #e9ecef;
       }
     }
-    
-    &.btn-secondary, &.btn-outline-warning, &.btn-outline-light, &.btn-outline-info, &.btn-outline-secondary {
+
+    &.btn-secondary,
+    &.btn-outline-warning,
+    &.btn-outline-light,
+    &.btn-outline-info,
+    &.btn-outline-secondary {
       background-color: #e9ecef;
       border-color: #adb5bd;
       color: #495057;
-      
+
       &:hover {
         background-color: black;
         border-color: black;
       }
-      
+
       &:active {
         background-color: black;
       }
     }
-    
-    &.btn-info, &.btn-success {
-      background-color: #ffd700;
-      border-color: #ffc107;
+
+    &.btn-info,
+    &.btn-success {
+      background-color: #42A5F5;
+      border-color: #42A5F5;
       color: black;
       font-weight: 700;
-      
+
       &:hover {
-        background-color: #ffed4e;
-        border-color: #ffc107;
+        background-color: #333333;
+        border-color: #000000;
       }
-      
+
       &:active {
-        background-color: #ffc107;
+        background-color: #000000;
       }
     }
   }
 
   .functions-section {
     padding: 1rem;
-    
-    h2, h3 {
-      color: white;
+
+    h2,
+    h3 {
+      color: #000000;
     }
-    
+
     @media (max-width: 768px) {
       padding: 0.5rem;
-      
-      h2, h3 {
+
+      h2,
+      h3 {
         font-size: 1.1rem;
       }
-      
+
       .small {
         font-size: 0.85rem;
       }
     }
-    
+
     @media (max-width: 576px) {
-      h2, h3 {
+
+      h2,
+      h3 {
         font-size: 1rem;
       }
-      
+
       .small {
         font-size: 0.8rem;
       }
     }
-    
+
     @media (max-width: 480px) {
-      h2, h3 {
+
+      h2,
+      h3 {
         font-size: 0.9rem;
       }
-      
+
       .small {
         font-size: 0.75rem;
       }
@@ -650,7 +679,7 @@
 
   .comprehensive-guide {
     padding: 2rem 1rem;
-    
+
     .guide-section {
       padding: 1.5rem;
       background: rgba(255, 255, 255, 0.05);
@@ -658,77 +687,77 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
       transition: all 0.3s ease;
       height: 100%;
-      
+
       &:hover {
         background: rgba(255, 255, 255, 0.08);
         border-color: rgba(255, 255, 255, 0.2);
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       }
-      
+
       h3 {
-        color: white;
+        color: #000000;
         margin-bottom: 1rem;
       }
-      
+
       ul {
         margin-bottom: 0;
-        
+
         li {
           margin-bottom: 0.5rem;
-          
+
           &:last-child {
             margin-bottom: 0;
           }
         }
       }
-      
+
       p {
-        color: white;
+        color: #000000;
         margin-bottom: 0.5rem;
       }
     }
-    
+
     @media (max-width: 768px) {
       padding: 1.5rem 0.5rem;
-      
+
       .guide-section {
         padding: 1rem;
-        
+
         h3 {
           font-size: 1rem;
         }
-        
+
         .small {
           font-size: 0.85rem;
         }
       }
     }
-    
+
     @media (max-width: 576px) {
       padding: 1rem 0.5rem;
-      
+
       .guide-section {
         padding: 0.875rem;
-        
+
         h3 {
           font-size: 0.95rem;
         }
-        
+
         .small {
           font-size: 0.8rem;
         }
       }
     }
-    
+
     @media (max-width: 480px) {
       .guide-section {
         padding: 0.75rem;
-        
+
         h3 {
           font-size: 0.9rem;
         }
-        
+
         .small {
           font-size: 0.75rem;
         }
@@ -739,13 +768,13 @@
 
   .table {
     --bs-table-bg: transparent;
-    
+
     thead {
       background-color: #010101 !important;
-      
+
       th {
         background-color: #343a40 !important;
-        color:rgb(244, 240, 240) !important;
+        color: #ffffff !important;
         border-bottom: 2px solid #495057 !important;
         font-weight: 600 !important;
         padding: 0.75rem !important;
@@ -753,32 +782,38 @@
         vertical-align: middle !important;
       }
     }
-    
+
     tbody {
       td {
-        color:rgb(247, 247, 247) !important;
+        color: #000000 !important;
         border-color: #000000 !important;
         padding: 0.5rem 0.75rem !important;
       }
     }
-    
+
     // Responsive table adjustments
     @media (max-width: 768px) {
-      thead th, tbody td {
+
+      thead th,
+      tbody td {
         padding: 0.4rem 0.5rem !important;
         font-size: 0.9rem;
       }
     }
-    
+
     @media (max-width: 576px) {
-      thead th, tbody td {
+
+      thead th,
+      tbody td {
         padding: 0.3rem 0.4rem !important;
         font-size: 0.8rem;
       }
     }
-    
+
     @media (max-width: 480px) {
-      thead th, tbody td {
+
+      thead th,
+      tbody td {
         padding: 0.25rem 0.3rem !important;
         font-size: 0.75rem;
       }
@@ -791,36 +826,40 @@
 @media (max-width: 360px) {
   .calc-page {
     margin-left: 2px;
-    
+
     .calculator-shell {
       padding: 0.5rem;
       max-width: 240px;
     }
-    
+
     .screen {
       font-size: 1rem;
       padding: 5px 8px;
       min-height: 40px;
     }
-    
+
     .keypad .btn {
       padding: 4px 2px;
       font-size: 0.7rem;
       min-height: 30px;
     }
-    
+
     .guide {
-      h2, h3 {
+
+      h2,
+      h3 {
         font-size: 0.85rem;
       }
-      
+
       .small {
         font-size: 0.7rem;
       }
     }
-    
+
     .table {
-      thead th, tbody td {
+
+      thead th,
+      tbody td {
         padding: 0.2rem 0.25rem !important;
         font-size: 0.7rem;
       }
@@ -833,32 +872,33 @@
   .keypad .btn {
     min-height: 48px;
     padding: 12px 8px;
-    
+
     &:active {
       transform: scale(0.9);
       transition: transform 0.1s ease;
     }
   }
-  
+
   .calculator-shell {
     padding: 1.25rem;
   }
-  
+
   .screen {
     min-height: 60px;
     font-size: 1.4rem;
   }
 }
 
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
   .keypad .btn {
     border-width: 0.5px;
   }
-  
+
   .calculator-shell {
     border-width: 0.5px;
   }
-  
+
   .screen {
     border-width: 0.5px;
   }

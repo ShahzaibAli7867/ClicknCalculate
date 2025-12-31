@@ -1,6 +1,6 @@
 // Main container styles to match loan calculator
 .area-page {
-      background: #1a2a4a;
+      background: #E3F2FD;
       color: #ffffff;
       min-height: 100vh;
       margin-left: 70px;
@@ -87,9 +87,9 @@
             &:focus {
                   color: #212529;
                   background-color: #fff;
-                  border-color: #ffd700;
+                  border-color: #000000;
                   outline: none;
-                  box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+                  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
             }
 
             &::placeholder {
@@ -158,12 +158,12 @@
             }
 
             .btn-calculate {
-                  background-color: #ffd700 !important;
+                  background-color: #42A5F5 !important;
                   color: black;
                   font-weight: 600;
 
                   &:hover {
-                        background-color: #ffd700 !important;
+                        background-color: #64B5F6 !important;
                   }
             }
       }
@@ -173,7 +173,7 @@
             border-radius: 8px;
             padding: 2rem;
             margin-top: 2rem;
-            border: 1px solid black;
+            border: 1px solid rgba(0, 0, 0, 0.1);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 
             h3 {
@@ -239,8 +239,8 @@
 
 /* Quick Reference and Guide Sections */
 .functions-section {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.1);
       border-radius: 12px;
       transition: all 0.3s ease;
 
@@ -254,7 +254,7 @@
             font-weight: 700;
             margin-bottom: 1.5rem;
             padding-bottom: 0.75rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             position: relative;
 
             &::after {
@@ -264,7 +264,7 @@
                   left: 0;
                   width: 50px;
                   height: 2px;
-                  background: #ffd700;
+                  background: #000000;
             }
       }
 
@@ -273,11 +273,11 @@
             font-weight: 600;
             margin-top: 1.5rem;
             margin-bottom: 1rem;
-            color: #ffd700;
+            color: #000000;
       }
 
       .table {
-            background: rgba(0, 0, 0, 0.2);
+            background: #ffffff;
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 1.5rem;
@@ -285,12 +285,12 @@
             th,
             td {
                   padding: 0.75rem 1rem;
-                  border-color: rgba(255, 255, 255, 0.1);
+                  border-color: rgba(0, 0, 0, 0.1);
             }
 
             th {
                   background: rgba(255, 215, 0, 0.1);
-                  color: #ffd700;
+                  color: #000000;
                   font-weight: 600;
                   text-transform: uppercase;
                   font-size: 0.7rem;
@@ -298,12 +298,12 @@
             }
 
             td {
-                  color: #e9ecef;
+                  color: #333;
                   vertical-align: middle;
 
                   &:first-child {
                         font-weight: 500;
-                        color: #ffd700;
+                        color: #000000;
                   }
             }
 
@@ -321,7 +321,7 @@
                   line-height: 1.5;
 
                   strong {
-                        color: #ffd700;
+                        color: #000000;
                         font-weight: 600;
                   }
             }
@@ -361,11 +361,11 @@
 }
 
 .comprehensive-guide {
-      background: rgba(255, 255, 255, 0.03);
+      background: #ffffff;
       border-radius: 16px;
       padding: 2rem;
       margin-top: 2rem;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 0, 0, 0.1);
 
       h2 {
             font-size: 1.5rem;
@@ -382,17 +382,17 @@
                   transform: translateX(-50%);
                   width: 100px;
                   height: 2px;
-                  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+                  background: linear-gradient(90deg, transparent, #000000, transparent);
             }
       }
 
       .guide-section {
-            background: rgba(255, 255, 255, 0.03);
+            background: #ffffff;
             border-radius: 12px;
             padding: 1.5rem;
             height: 100%;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
 
             &:hover {
                   transform: translateY(-3px);
@@ -403,7 +403,7 @@
             h3 {
                   font-size: 1.1rem;
                   margin-bottom: 1.25rem;
-                  color: #ffd700;
+                  color: #000000;
                   display: flex;
                   align-items: center;
                   gap: 0.5rem;
@@ -413,7 +413,7 @@
                         display: inline-block;
                         width: 6px;
                         height: 6px;
-                        background: #ffd700;
+                        background: #000000;
                         border-radius: 50%;
                         margin-right: 8px;
                   }
@@ -426,13 +426,13 @@
                   li {
                         margin-bottom: 0.75rem;
                         line-height: 1.6;
-                        color: #e9ecef;
+                        color: #333;
                         position: relative;
                         padding-left: 1.25rem;
 
                         &::before {
                               content: '•';
-                              color: #ffd700;
+                              color: #000000;
                               font-weight: bold;
                               display: inline-block;
                               width: 1em;
@@ -442,7 +442,7 @@
                         }
 
                         strong {
-                              color: #ffd700;
+                              color: #000000;
                               font-weight: 600;
                         }
 

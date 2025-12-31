@@ -1,13 +1,88 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Global background color for the entire application */
-body, html {
-  background-color: #1a2a4a !important;
+body,
+html {
+  background-color: #E3F2FD !important;
+  color: black !important;
   min-height: 100vh;
 }
 
 /* Ensure all main containers use the same background */
-.app-container, .main-container, .page-container {
-  background-color: #1a2a4a !important;
+.app-container,
+.main-container,
+.page-container {
+  background-color: transparent !important;
   min-height: 100vh;
+}
+
+/* Force all text to be black - override Bootstrap classes */
+.text-white,
+.text-light,
+.text-muted,
+.text-secondary,
+.text-info,
+.text-primary {
+  color: #000000 !important;
+}
+
+/* Force all headings to be black */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  color: #000000 !important;
+}
+
+/* Force all paragraphs and list items to be black */
+p,
+li,
+span,
+div,
+a,
+label,
+small {
+  color: #000000 !important;
+}
+
+/* Force table text to be black */
+table,
+th,
+td {
+  color: #000000 !important;
+}
+
+/* Override table-dark to have light styling */
+.table-dark {
+  background-color: #f8f9fa !important;
+  color: #000000 !important;
+}
+
+.table-dark th,
+.table-dark td {
+  background-color: #f8f9fa !important;
+  color: #000000 !important;
+  border-color: #dee2e6 !important;
+}
+
+.table-dark thead th {
+  background-color: #e9ecef !important;
+  color: #000000 !important;
+  border-bottom: 2px solid #dee2e6 !important;
+}
+
+.table-dark tbody tr {
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.table-dark tbody tr:hover {
+  background-color: #e9ecef !important;
 }

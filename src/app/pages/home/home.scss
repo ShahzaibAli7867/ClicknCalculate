@@ -2,7 +2,7 @@
 //@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 .home-container {
-  background: #1a2a4a; // Updated to use consistent background color
+  background: #E3F2FD; // Updated to use consistent background color
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
   padding: 2rem 0;
@@ -10,7 +10,7 @@
   // Global text color overrides to prevent Bootstrap from making everything white
   .text-light,
   .text-white {
-    color: #1a2a4a !important;
+    color: #000000 !important;
   }
 
   .container {
@@ -24,7 +24,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff !important;
+    color: #000000 !important;
     font-weight: 700;
     font-size: 3rem;
     margin-bottom: 1rem;
@@ -42,18 +42,18 @@
   }
 
   .lead {
-    color: white !important; // Light gray subtitle
+    color: #333 !important; // Dark gray subtitle
     font-size: 1.125rem;
     margin-bottom: 2rem;
   }
 
   // Override Bootstrap text utility classes
   .text-light {
-    color: white !important;
+    color: #000000 !important;
   }
 
   .text-info {
-    color: white !important;
+    color: #000000 !important;
   }
 
   // Ensure all text classes are visible on dark background
@@ -62,16 +62,16 @@
     h1,
     .display-5,
     .fw-bold {
-      color: #ffffff !important;
+      color: #000000 !important;
     }
   }
 
   .text-secondary {
-    color: white !important;
+    color: #000000 !important;
   }
 
   .text-muted {
-    color: white !important;
+    color: #000000 !important;
   }
 
   // Grid layout - Force 3 columns on desktop and tablet
@@ -99,9 +99,9 @@
 
   // Calculator cards styling to match screenshot
   .calculator-card {
-    background: #1a2a4a !important; // Updated card background to match main theme
+    background: #ffffff !important; // Updated card background to match main theme
     border-radius: 12px !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -111,7 +111,7 @@
     &:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2) !important;
-      background: #1a2a4a !important;
+      background: #ffffff !important;
     }
 
     .card-body {
@@ -125,25 +125,25 @@
     }
 
     .card-title {
-      color: #FFFFFF !important; // White title text
+      color: #000000 !important; // Dark title text
       font-weight: 600;
       font-size: 1.125rem;
       margin-bottom: 0.75rem;
     }
 
     .card-text {
-      color: white !important; // Light gray description text
+      color: #333 !important; // Dark gray description text
       font-size: 0.875rem;
       margin-bottom: 1.5rem;
     }
 
     // Override Bootstrap card text classes
     h5.card-title {
-      color: #FFFFFF !important;
+      color: #000000 !important;
     }
 
     p.card-text {
-      color: white !important;
+      color: #333 !important;
     }
 
     .btn {
@@ -168,7 +168,7 @@
 
   // Footer styling
   footer {
-    color: #6B7280 !important; // Gray footer text
+    color: #000000 !important; // Dark footer text
     text-align: center;
     margin-top: 3rem;
   }

@@ -1,58 +1,59 @@
 .volume-page {
-  background: #1a2a4a;
+  background: #E3F2FD;
   min-height: 100vh;
   margin-left: 70px;
-  
+
   @media (max-width: 1200px) {
     margin-left: 30px;
   }
-  
+
   @media (max-width: 768px) {
     margin-left: 15px;
   }
-  
+
   @media (max-width: 576px) {
     margin-left: 10px;
   }
-  
+
   @media (max-width: 480px) {
     margin-left: 5px;
   }
-  
+
   .text-info {
-    color: #ffd700 !important;
+    color: #000000 !important;
   }
-  
+
   .calculator-shell {
     background: #ffffff;
     border: 1px solid #d0d0d0;
     border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
     padding: 2rem;
     max-width: 500px;
     width: 100%;
-    
+
     @media (max-width: 768px) {
       padding: 1.5rem;
     }
-    
+
     @media (max-width: 576px) {
       padding: 1.25rem;
     }
-    
+
     @media (max-width: 480px) {
       padding: 1rem;
     }
   }
-  
+
   .form-label {
     color: #212529;
     font-weight: 500;
     margin-bottom: 0.5rem;
     font-size: 1rem;
   }
-  
-  .form-select, .form-control {
+
+  .form-select,
+  .form-control {
     border: 2px solid #dee2e6;
     border-radius: 8px;
     padding: 0.75rem 1rem;
@@ -60,34 +61,34 @@
     transition: all 0.2s ease;
     color: #212529;
     background-color: #ffffff;
-    
+
     &:focus {
-      border-color: #ffd700;
-      box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.25);
+      border-color: #000000;
+      box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
       outline: none;
     }
-    
+
     &::placeholder {
       color: #adb5bd;
     }
-    
+
     @media (max-width: 576px) {
       padding: 0.625rem 0.875rem;
       font-size: 0.95rem;
     }
   }
-  
+
   .form-select-lg {
     padding: 0.875rem 1.125rem;
     font-size: 1.125rem;
     font-weight: 500;
   }
-  
+
   .form-control-lg {
     padding: 0.875rem 1.125rem;
     font-size: 1.125rem;
   }
-  
+
   .btn {
     border-radius: 8px;
     padding: 0.875rem 1.5rem;
@@ -96,60 +97,60 @@
     border: 2px solid transparent;
     transition: all 0.2s ease;
     cursor: pointer;
-    
+
     &:active {
       transform: scale(0.98);
     }
-    
+
     @media (max-width: 576px) {
       padding: 0.75rem 1.25rem;
       font-size: 0.95rem;
     }
   }
-  
+
   .btn-secondary {
     background-color: #e9ecef;
     border-color: #adb5bd;
     color: #495057;
-    
+
     &:hover {
       background-color: #343a40;
       border-color: #343a40;
       color: #ffffff;
     }
   }
-  
+
   .btn-calculate {
-    background-color: #ffd700;
-    border-color: #ffc107;
+    background-color: #42A5F5;
+    border-color: #42A5F5;
     color: #000000;
     font-weight: 700;
-    
+
     &:hover {
-      background-color: #ffed4e;
-      border-color: #ffc107;
+      background-color: #64B5F6;
+      border-color: #42A5F5;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
-    
+
     &:active {
       transform: translateY(0);
     }
   }
-  
+
   .answer-section {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
     border-top: 2px solid #dee2e6;
   }
-  
+
   .result-box {
     background: #f8f9fa;
     border: 2px solid #dee2e6;
     border-radius: 12px;
     padding: 1.5rem;
     text-align: center;
-    
+
     .result-label {
       color: #6c757d;
       font-size: 0.95rem;
@@ -158,76 +159,82 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-    
+
     .result-value {
       color: #212529;
       font-size: 1.75rem;
       font-weight: 700;
       font-family: 'Arial', sans-serif;
-      
+
       sup {
         font-size: 1.25rem;
       }
-      
+
       @media (max-width: 576px) {
         font-size: 1.5rem;
-        
+
         sup {
           font-size: 1rem;
         }
       }
     }
   }
-  
+
   .functions-section {
     padding: 1rem;
-    
-    h2, h3 {
-      color: white;
+
+    h2,
+    h3 {
+      color: #000000;
     }
-    
+
     @media (max-width: 768px) {
       padding: 0.5rem;
-      
-      h2, h3 {
+
+      h2,
+      h3 {
         font-size: 1.1rem;
       }
-      
+
       .small {
         font-size: 0.85rem;
       }
     }
-    
+
     @media (max-width: 576px) {
-      h2, h3 {
+
+      h2,
+      h3 {
         font-size: 1rem;
       }
-      
+
       .small {
         font-size: 0.8rem;
       }
     }
-    
+
     @media (max-width: 480px) {
-      h2, h3 {
+
+      h2,
+      h3 {
         font-size: 0.9rem;
       }
-      
+
       .small {
         font-size: 0.75rem;
       }
     }
   }
-  
+
   .table {
     --bs-table-bg: transparent;
-    
+
     thead {
       background-color: #010101 !important;
-      
+
       th {
         background-color: #343a40 !important;
-        color:rgb(244, 240, 240) !important;
+        color: #000000 !important;
         border-bottom: 2px solid #495057 !important;
         font-weight: 600 !important;
         padding: 0.75rem !important;
@@ -235,118 +242,124 @@
         vertical-align: middle !important;
       }
     }
-    
+
     tbody {
       td {
-        color:rgb(247, 247, 247) !important;
+        color: #000000 !important;
         border-color: #000000 !important;
         padding: 0.5rem 0.75rem !important;
       }
     }
-    
+
     @media (max-width: 768px) {
-      thead th, tbody td {
+
+      thead th,
+      tbody td {
         padding: 0.4rem 0.5rem !important;
         font-size: 0.9rem;
       }
     }
-    
+
     @media (max-width: 576px) {
-      thead th, tbody td {
+
+      thead th,
+      tbody td {
         padding: 0.3rem 0.4rem !important;
         font-size: 0.8rem;
       }
     }
-    
+
     @media (max-width: 480px) {
-      thead th, tbody td {
+
+      thead th,
+      tbody td {
         padding: 0.25rem 0.3rem !important;
         font-size: 0.75rem;
       }
     }
   }
-  
+
   .comprehensive-guide {
     padding: 2rem 1rem;
-    
+
     .guide-section {
       padding: 1.5rem;
-      background: rgba(255, 255, 255, 0.05);
+      background: #ffffff;
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
       height: 100%;
-      
+
       &:hover {
-        background: rgba(255, 255, 255, 0.08);
-        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.08);
+        border-color: rgba(0, 0, 0, 0.2);
         transform: translateY(-2px);
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
       }
-      
+
       h3 {
-        color: white;
+        color: #000000;
         margin-bottom: 1rem;
       }
-      
+
       ul {
         margin-bottom: 0;
-        
+
         li {
           margin-bottom: 0.5rem;
-          
+
           &:last-child {
             margin-bottom: 0;
           }
         }
       }
-      
+
       p {
-        color: white;
+        color: #333;
         margin-bottom: 0.5rem;
       }
     }
-    
+
     @media (max-width: 768px) {
       padding: 1.5rem 0.5rem;
-      
+
       .guide-section {
         padding: 1rem;
-        
+
         h3 {
           font-size: 1rem;
         }
-        
+
         .small {
           font-size: 0.85rem;
         }
       }
     }
-    
+
     @media (max-width: 576px) {
       padding: 1rem 0.5rem;
-      
+
       .guide-section {
         padding: 0.875rem;
-        
+
         h3 {
           font-size: 0.95rem;
         }
-        
+
         .small {
           font-size: 0.8rem;
         }
       }
     }
-    
+
     @media (max-width: 480px) {
       .guide-section {
         padding: 0.75rem;
-        
+
         h3 {
           font-size: 0.9rem;
         }
-        
+
         .small {
           font-size: 0.75rem;
         }
@@ -358,22 +371,21 @@
 
 @media (max-width: 360px) {
   .calc-page {
-    background: #1a2a4a;
-    margin-left: 0; 
-    padding: 0 15px; 
-  
+    background: #E3F2FD;
+    margin-left: 0;
+    padding: 0 15px;
+
     @media (min-width: 1200px) {
       padding: 0 70px;
     }
-  
+
     @media (min-width: 768px) and (max-width: 1199px) {
       padding: 0 30px;
     }
-  
+
     @media (max-width: 767px) {
       padding: 0 10px;
     }
   }
-  
-}
 
+}
